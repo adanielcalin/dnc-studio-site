@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('bg.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      position: relative;
+      z-index: 0;
+    }
+
+    /* overlay întunecat peste fundal */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5); /* negru cu 50% opacitate */
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* HERO (introducere) */
+    .hero {
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #ddd;
+    }
+
+    /* FORMULAR */
+    .container {
+      max-width: 1000px;
+      margin: 100px auto;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    label {
+      margin-top: 20px;
+      display: block;
+      font-weight: bold;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      font-size: 14px;
+      outline: none;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #ddd;
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(to right, #ffffff, #d4d4d4);
+      color: black;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .msg {
+      margin-top: 15px;
+      padding: 10px;
+      display: none;
+      text-align: center;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+    }
+
+    /* NOUL DIV de mai jos */
+    .info-box {
+      width: 80%;
+      margin: 50px auto;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #f1f1f1;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+.textinceput {
+  max-width: 1080px;     /* lățime maximă rezonabilă */
+  margin: 0 auto;       /* centru orizontal */
+  padding: 20px;        /* puțin spațiu în interior */
+  background: rgba(92, 92, 92, 0.411); /* fundal negru transparent */
+  border-radius: 15px;
+  font-weight: bold;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+  </style>
+</head>
+<body>
+    <br></br>
+  <!-- NOUL DIV CU TEXT -->
+  <section class="info-box">
+        <br></br>
+    <div class="textinceput">
+    <h1>DNC Studio Production</h1>
+      Sunt Adrian Daniel Călin, fondatorul DNC Studio Production S.R.L. (CUI 51662282). Ofer servicii complete de producție video, podcasturi și conținut vertical adaptat rețelelor sociale. Colaborez cu branduri și creatori care își doresc conținut cu impact real.
+    </div>
+
+  <!-- FORMULAR -->
+  <section id="contact" class="fade-in">
+    <div class="container">
+      <h2>Formular de contact</h2>
+      <form id="contact-form" action="https://formspree.io/f/mwpojnrv" method="POST">
+        <label for="name">Nume:</label>
+        <input type="text" id="name" name="name" placeholder="Numele tău" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="email@exemplu.com" required />
+
+        <label for="message">Mesaj:</label>
+        <textarea id="message" name="message" rows="5" placeholder="Scrie mesajul aici..." required></textarea>
+
+        <button type="submit">Trimite</button>
+        <div class="msg" id="form-msg"></div>
+      </form>
+    </div>
+  </section>
+  </section>
+
+
+  <!-- SCRIPT -->
+  <script>
+    const form = document.getElementById('contact-form');
+    const msg = document.getElementById('form-msg');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: {
+            Accept: 'application/json',
+          },
+        });
+
+        if (res.ok) {
+          msg.textContent = 'Mesaj trimis cu succes!';
+          msg.style.display = 'block';
+          form.reset();
+        } else {
+          msg.textContent = 'Eroare la trimitere.';
+          msg.style.display = 'block';
+        }
+      } catch (err) {
+        msg.textContent = 'Eroare de rețea.';
+        msg.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
