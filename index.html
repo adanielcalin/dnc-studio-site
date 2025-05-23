@@ -8,11 +8,16 @@
     html {
       scroll-behavior: smooth;
     }
-
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-image: url('bg.jpg');
+      background:
+        radial-gradient(circle at top left, #FFD700, transparent 40%),
+        radial-gradient(circle at top right, #000000, transparent 40%),
+        radial-gradient(circle at bottom left, #000000, transparent 40%),
+        radial-gradient(circle at bottom right, #FFD700, transparent 40%);
+      background-color: #111; /* fallback solid background */
+      background-blend-mode: screen;
       background-size: cover;
       background-position: center;
       color: white;
@@ -20,18 +25,6 @@
       z-index: 0;
     }
 
-    /* overlay întunecat peste fundal */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.5); /* negru cu 50% opacitate */
-      z-index: -1;
-      pointer-events: none;
-    }
 
     /* HERO (introducere) */
     .hero {
@@ -147,6 +140,11 @@
   box-sizing: border-box;
 }
 
+.h3 {
+  font: 100;
+}
+
+
   </style>
 </head>
 <body>
@@ -154,9 +152,13 @@
   <!-- NOUL DIV CU TEXT -->
   <section class="info-box">
         <br></br>
-    <div class="textinceput">
-    <h1>DNC Studio Production</h1>
-      Sunt Adrian Daniel Călin, fondatorul DNC Studio Production S.R.L. (CUI 51662282). Ofer servicii complete de producție video, podcasturi și conținut vertical adaptat rețelelor sociale. Colaborez cu branduri și creatori care își doresc conținut cu impact real.
+    <h1> DNC Studio Production</h1>
+    <h3>Evidenta business-ului tau in mediul online</h3>
+
+
+
+</div>
+
     </div>
 
   <!-- FORMULAR -->
