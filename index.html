@@ -1,218 +1,259 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact</title>
+  <title>DNC Studio Production</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/champion" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
   <style>
-    html {
-      scroll-behavior: smooth;
+    :root {
+      --plyr-color-main: #ffc801 !important;
     }
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background:
-        radial-gradient(circle at top left, #FFD700, transparent 40%),
-        radial-gradient(circle at top right, #000000, transparent 40%),
-        radial-gradient(circle at bottom left, #000000, transparent 40%),
-        radial-gradient(circle at bottom right, #FFD700, transparent 40%);
-      background-color: #111; /* fallback solid background */
-      background-blend-mode: screen;
-      background-size: cover;
-      background-position: center;
-      color: white;
-      position: relative;
-      z-index: 0;
-    }
-
-
-    /* HERO (introducere) */
-    .hero {
-      height: 80vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(4px);
-    }
-
-    .hero h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      color: #ddd;
-    }
-
-    /* FORMULAR */
-    .container {
-      max-width: 1000px;
-      margin: 100px auto;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-    }
-
-    label {
-      margin-top: 20px;
-      display: block;
-      font-weight: bold;
-    }
-
-    input,
-    textarea {
-      width: 100%;
-      padding: 12px;
-      margin-top: 8px;
-      border: none;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.2);
-      color: white;
-      font-size: 14px;
-      outline: none;
-    }
-
-    input::placeholder,
-    textarea::placeholder {
-      color: #ddd;
-    }
-
-    button {
-      margin-top: 25px;
-      padding: 12px;
-      width: 100%;
-      border: none;
-      border-radius: 10px;
-      background: linear-gradient(to right, #ffffff, #d4d4d4);
-      color: black;
-      font-weight: bold;
-      font-size: 16px;
-      cursor: pointer;
-      transition: opacity 0.3s ease;
-    }
-
-    button:hover {
-      opacity: 0.9;
-    }
-
-    .msg {
-      margin-top: 15px;
-      padding: 10px;
-      display: none;
-      text-align: center;
-      border-radius: 5px;
-      background-color: rgba(255, 255, 255, 0.15);
-      color: #ffffff;
-    }
-
-    /* NOUL DIV de mai jos */
-    .info-box {
-      width: 80%;
-      margin: 50px auto;
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(8px);
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #f1f1f1;
-      text-align: center;
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-.textinceput {
-  max-width: 1080px;     /* lățime maximă rezonabilă */
-  margin: 0 auto;       /* centru orizontal */
-  padding: 20px;        /* puțin spațiu în interior */
-  background: rgba(92, 92, 92, 0.411); /* fundal negru transparent */
-  border-radius: 15px;
-  font-weight: bold;
-  line-height: 1.6;
-  box-sizing: border-box;
-}
-
-.h3 {
-  font: 100;
-}
-
-
   </style>
 </head>
 <body>
+  <div class="gold-balls">
+    <div class="gold-ball"></div>
+    <div class="gold-ball"></div>
+    <div class="gold-ball"></div>
+    <div class="gold-ball"></div>
+    <!-- White balls for extra effect -->
+    <div class="gold-ball white" style="width:120px;height:120px;top:15%;left:60%;"></div>
+    <div class="gold-ball white fast" style="width:80px;height:80px;top:70%;left:30%;"></div>
+    <div class="gold-ball white fast" style="width:100px;height:100px;top:50%;left:80%;"></div>
+    <div class="gold-ball white" style="width:60px;height:60px;top:30%;left:10%;"></div>
+  </div>
+
+  <div class="glass-container">
+    <header>
+      <div class="logo" style="margin-left: 2rem;">DnC Studio</div>
+      <br></br>
+
+      <nav>
+        <a href="#packages">Pachete</a>
+        <a href="#oferim">Ce oferim?</a>
+        <a href="#contact" class="contact-nav-btn"><button>Contact</button></a>
+      </nav>
+      <div class="auth-buttons" style="align-self: flex-end; display:none;">
+        <!-- Old contact button hidden, now in nav -->
+      </div>
+    </header>
+
+    <section class="hero">
+      <div style="display: flex; align-items: flex-start; gap: 4.5rem; flex-wrap: wrap;">
+        <div style="flex: 1 1 350px; min-width: 250px;">
+          <h1>Echipă de producție video care te scoate din <span style="color:#FFD700;font-size:3.2rem;">UMBRA!</span></h1>
+          <p class="p1mic">Te scoatem din mulțime și te facem vizibil printre sutele de mii de branduri, cu video-uri care nu doar captează atenția, ci și generează vânzări reale. Prin conținut autentic și strategie clară, transformăm povestea ta în cea mai puternică armă de marketing, astfel încât să fii ales și apreciat de clienții potriviți.</p>
+        </div>
+        <div style="flex: 0 0 440px; min-width: 280px; display: flex; justify-content: center; align-items: flex-start; margin-top: -1.5rem;">
+          <img src="ilustratie.svg" alt="DnC Studio" style="max-width: 440px; width: 100%; height: auto;" />
+        </div>
+      </div>
+    </section>
+    <div style="width:100%;margin:2.5rem 0 1.5rem 0;padding:1.2rem 0;text-align:center;">
+      <span style="color:#fff; text-align:center; font-size:2.1rem; margin-bottom:1.2rem; font-family:Impact, Charcoal, 'Arial Black', 'Space Grotesk', 'Anton', sans-serif; font-weight:normal;">Ce primești de la noi?</span>
+    </div>
+    <section class="package-container" id="packages">
+      <div class="package">
+        <h2>Standard</h2>
+        <div class="info">Filmăm și edităm profesional. Tu ne aduci scriptul, noi îl transformăm în video care vinde</div>
+        <p class="price">249€</p>
+        <ul>
+          <li>Filmare cu echipament profesional</li>
+          <li>Editare video în stil profesional</li>
+          <li>Procesare sunet de calitate superioară</li>
+          <li>Livrare video optimizat pentru rețele sociale (Reels, TikTok, Facebook)</li>
+        </ul>
+      </div>
+      <div class="package">
+        <h2>Premium</h2>
+        <div class="info">Tot ce e în Standard, plus scripturi făcute de noi, subtitrări și un video cadou</div>
+        <p class="price">449€</p>
+        <ul>
+          <li>Toate serviciile din Pachetul Standard, plus:</li>
+          <li>Scrierea scripturilor personalizate pentru fiecare clip</li>
+          <li>Adăugare subtitrări profesioniste, adaptate platformei</li>
+          <li>Consultanță pentru optimizarea conținutului astfel încât să genereze vânzări</li>
+        </ul>
+      </div>
+    </section>
     <br></br>
-  <!-- NOUL DIV CU TEXT -->
-  <section class="info-box">
-        <br></br>
-    <h1> DNC Studio Production</h1>
-    <h3>Evidenta business-ului tau in mediul online</h3>
-
-
-
-</div>
-
-    </div>
-
-  <!-- FORMULAR -->
-  <section id="contact" class="fade-in">
-    <div class="container">
-      <h2>Formular de contact</h2>
-      <form id="contact-form" action="https://formspree.io/f/mwpojnrv" method="POST">
-        <label for="name">Nume:</label>
-        <input type="text" id="name" name="name" placeholder="Numele tău" required />
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="email@exemplu.com" required />
-
-        <label for="message">Mesaj:</label>
-        <textarea id="message" name="message" rows="5" placeholder="Scrie mesajul aici..." required></textarea>
-
-        <button type="submit">Trimite</button>
-        <div class="msg" id="form-msg"></div>
-      </form>
-    </div>
-  </section>
-  </section>
-
-
-  <!-- SCRIPT -->
-  <script>
-    const form = document.getElementById('contact-form');
-    const msg = document.getElementById('form-msg');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-
-      try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: data,
-          headers: {
-            Accept: 'application/json',
-          },
-        });
-
-        if (res.ok) {
-          msg.textContent = 'Mesaj trimis cu succes!';
-          msg.style.display = 'block';
-          form.reset();
-        } else {
-          msg.textContent = 'Eroare la trimitere.';
-          msg.style.display = 'block';
+    <br></br>
+<!--
+    <section class="services-section-container" id="services">
+      <h2 style="color:#FFD700; text-align:left; margin-left:0.5rem; margin-bottom:0.5rem; font-size:2rem;">Servicii</h2>
+      <div class="services-section">
+        <div class="service-card"><i class="fas fa-film" style="color:#FFD700;font-size:2rem;"></i><h3>Reels Video</h3><p>&rarr; Learn more</p></div>
+        <div class="service-card"><i class="fas fa-podcast" style="color:#FFD700;font-size:2rem;"></i><h3>Podcast Video</h3><p>&rarr; Learn more</p></div>
+        <div class="service-card"><i class="fas fa-video" style="color:#FFD700;font-size:2rem;"></i><h3>Vlog Video</h3><p>&rarr; Learn more</p></div>
+        <div class="service-card"><i class="fas fa-car" style="color:#FFD700;font-size:2rem;"></i><h3>Car presentation Video</h3><p>&rarr; Learn more</p></div>
+        <div class="service-card"><i class="fas fa-film" style="color:#FFD700;font-size:2rem;"></i><h3>Documentary</h3><p>&rarr; Learn more</p></div>
+        <div class="service-card"><i class="fas fa-broadcast-tower" style="color:#FFD700;font-size:2rem;"></i><h3>Broadcast Video</h3><p>&rarr; Learn more</p></div>
+      </div>
+    </section>
+-->
+    <section id="oferim" style="margin: 3rem 0 2rem 0;">
+      <style>
+        #oferim .p1mic {
+          font-size: 1.25rem;
         }
-      } catch (err) {
-        msg.textContent = 'Eroare de rețea.';
-        msg.style.display = 'block';
+        #oferim h1 {
+          font-size: 2.3rem;
+        }
+      </style>
+      <h2 style="color:#fff; text-align:center; font-size:2.1rem; margin-bottom:1.2rem; font-family:Impact, Charcoal, 'Arial Black', 'Space Grotesk', 'Anton', sans-serif; font-weight:normal;">Ce oferim?</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 2.5rem; justify-content: center; align-items: flex-start;">
+        <div style="flex:1 1 260px; min-width:260px; max-width:450px; padding:2rem; color:#fff;">
+          <h1>Filmare profesională</h1>
+          <p class="p1mic">Folosim echipamente de ultimă generație pentru o imagine clară și cinematică. Fie că vrei un video dinamic sau o poveste emoționantă, te punem în lumină și te ajutăm să ieși în evidență într-o piață aglomerată</p>
+
+        </div>
+                <div style="flex: 0 0 440px; min-width: 280px; display: flex; justify-content: center; align-items: flex-start; margin-top: 0.5rem;">
+          <img src="ilustratie2.png" alt="DnC Studio" style="max-width: 400px; width: 100%; height: auto;" />
+        </div>
+      </div>
+      <!-- Dublura-->
+      <div style="display: flex; flex-wrap: wrap; gap: 2.5rem; justify-content: center; align-items: flex-start; flex-direction: row-reverse;">
+        <div style="flex:1 1 260px; min-width:260px; max-width:450px; padding:2rem; color:#fff;">
+          <h1>Editare creativă și profesională</h1>
+          <p class="p1mic">Nu livrăm doar materiale brute, ci clipuri bine construite, care spun o poveste și transmit exact mesajul dorit. Editarea noastră include tăieturi precise, tranziții fluide, corecție de culoare și efecte subtile care adaugă valoare și profesionalism</p>
+
+        </div>
+                <div style="flex: 0 0 440px; min-width: 280px; display: flex; justify-content: center; align-items: flex-start; margin-top: 0.5rem;">
+          <img src="ilustratie3.svg" alt="DnC Studio" style="max-width: 400px; width: 100%; height: auto;" />
+        </div>
+      </div>
+      <!-- Dublura-->
+             <div style="display: flex; flex-wrap: wrap; gap: 2.5rem; justify-content: center; align-items: flex-start;">
+        <div style="flex:1 1 260px; min-width:260px; max-width:450px; padding:2rem; color:#fff;">
+          <h1>Procesare și mixaj sunet premium</h1>
+          <p class="p1mic">Un video cu imagine excelentă nu este complet fără un sunet clar și profesionist. Ne ocupăm de procesarea și mixajul sunetului pentru a asigura o experiență audio plăcută și pentru ca mesajul tău să fie auzit limpede, fără zgomote sau distorsiuni</p>
+
+        </div>
+                <div style="flex: 0 0 440px; min-width: 280px; display: flex; justify-content: center; align-items: flex-start; margin-top: 4.5rem;">
+          <img src="ilustratie4.png" alt="DnC Studio" style="max-width: 400px; width: 100%; height: auto;" />
+        </div>
+      </div>
+    </section>
+    <section id="tiktok-grid-section" style="margin: 3rem 0 2rem 0;">
+      <h2 style="color:#fff; text-align:center; font-size:2.1rem; margin-bottom:1.2rem; font-family:Impact, Charcoal, 'Arial Black', 'Space Grotesk', 'Anton', sans-serif; font-weight:normal;">Clipuri TikTok recente</h2>
+      <div class="tiktok-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 1400px; margin: 0 auto;">
+        <video class="plyr" controls style="background:#222; border-radius:18px; width:100%; height:420px; min-height:340px; object-fit:cover;">
+          <source src="video1.mp4" type="video/mp4">
+        </video>
+        <video class="plyr" controls style="background:#222; border-radius:18px; width:100%; height:420px; min-height:340px; object-fit:cover;">
+          <source src="video2.mp4" type="video/mp4">
+        </video>
+        <video class="plyr" controls style="background:#222; border-radius:18px; width:100%; height:420px; min-height:340px; object-fit:cover;">
+          <source src="video3.mp4" type="video/mp4">
+        </video>
+        <video class="plyr" controls style="background:#222; border-radius:18px; width:100%; height:420px; min-height:340px; object-fit:cover;">
+          <source src="video4.mp4" type="video/mp4">
+        </video>
+        <video class="plyr" controls style="background:#222; border-radius:18px; width:100%; height:420px; min-height:340px; object-fit:cover;">
+          <source src="video5.mp4" type="video/mp4">
+        </video>
+        <video class="plyr" controls style="background:#222; border-radius:18px; width:100%; height:420px; min-height:340px; object-fit:cover;">
+          <source src="video6.mp4" type="video/mp4">
+        </video>
+        <video class="plyr" controls style="background:#222; border-radius:18px; width:100%; height:420px; min-height:340px; object-fit:cover;">
+          <source src="video7.mp4" type="video/mp4">
+        </video>
+        <video class="plyr" controls style="background:#222; border-radius:18px; width:100%; height:420px; min-height:340px; object-fit:cover;">
+          <source src="video8.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+    <section class="contact-form" id="contact">
+      <h2 style="color:#ffffff; margin-bottom:1rem;">Hai să-ți facem brandul cunoscut!</h2>
+      <form action="https://formspree.io/f/mwpojnrv" method="POST">
+        <input type="text" name="name" placeholder="Numele tău" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="phone" placeholder="Număr telefon" pattern="[0-9+\-() ]{7,}" required>
+        <textarea name="message" rows="5" placeholder="Ce idee vrei să transformăm în video?" required></textarea>
+        <button type="submit">Trimite</button>
+      </form>
+    </section>
+
+    <div class="footer">
+      &copy; 2025 DNC Studio Production. All rights reserved.
+    </div>
+  </div>
+
+  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.Plyr) {
+        Plyr.setup('.plyr');
       }
+
+      // Smooth scroll for header nav and Contact button
+      function smoothScrollTo(selector) {
+        const el = document.querySelector(selector);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+      // Nav links
+      document.querySelectorAll('nav a').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href && href.startsWith('#')) {
+            e.preventDefault();
+            smoothScrollTo(href);
+          }
+        });
+      });
+      // Contact button
+      const contactBtn = document.querySelector('.auth-buttons button');
+      if(contactBtn) {
+        contactBtn.addEventListener('click', function(e) {
+          const anchor = this.closest('a');
+          if(anchor && anchor.getAttribute('href') === '#contact') {
+            e.preventDefault();
+            smoothScrollTo('#contact'); 
+          }
+        });
+      }
+
+      // Gold balls scroll movement with very smooth animation
+      const balls = document.querySelectorAll('.gold-ball');
+      let lastScrollY = window.scrollY || window.pageYOffset;
+      let ticking = false;
+      let targetTransforms = Array.from(balls).map(() => 0);
+      let currentTransforms = Array.from(balls).map(() => 0);
+
+      function animateBalls() {
+        let changed = false;
+        balls.forEach(function(ball, i) {
+          // Each ball moves at a different speed and direction for parallax effect
+          const speed = 0.08 + 0.04 * (i % 4);
+          const direction = (i % 2 === 0) ? 1 : -1;
+          const target = direction * lastScrollY * speed;
+          targetTransforms[i] = target;
+          // Use a smaller interpolation factor for extra smoothness
+          currentTransforms[i] += (targetTransforms[i] - currentTransforms[i]) * 0.04;
+          if (Math.abs(currentTransforms[i] - targetTransforms[i]) > 0.2) changed = true;
+          ball.style.transform = `translateY(${currentTransforms[i]}px)`;
+        });
+        if (changed) {
+          requestAnimationFrame(animateBalls);
+        } else {
+          ticking = false;
+        }
+      }
+
+      window.addEventListener('scroll', function() {
+        lastScrollY = window.scrollY || window.pageYOffset;
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(animateBalls);
+        }
+      });
+      // Initial call to set positions
+      animateBalls();
     });
   </script>
 </body>
