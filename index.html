@@ -46,12 +46,12 @@
       </div>
     </header>
 
-
+    <!-- Mobile logo only visible on mobile -->
+    <div class="mobile-logo-champion">DnC Studio</div>
     
     <section class="hero">
       <div style="display: flex; align-items: flex-start; gap: 4.5rem; flex-wrap: wrap;">
         <div style="flex: 1 1 350px; min-width: 250px;">
-          <h1 class="logomobile">DnC Studio</h1>
           <h1 class="desktop-headline" style="display:block;">
             Echipă de producție video care te scoate din <span style="color:#FFD700;font-size:3.2rem;">UMBRA!</span>
           </h1>
@@ -346,11 +346,31 @@ document.addEventListener('DOMContentLoaded', function() {
     transform: translateX(-50%);
     position: relative;
   }
+  .mobile-logo-champion {
+    display: block;
+    font-family: 'Champion', 'Cinzel', serif !important;
+    font-size: 3.2rem;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+    text-align: center;
+    margin: 1.1rem 0 0.5rem 0;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+    z-index: 100;
+    background: none;
+    filter: none;
+    animation: none;
+    overflow: hidden;
+  }
 }
 @media (min-width: 901px) {
   .desktop-headline { display: block !important; }
   .mobile-headline { display: none !important; }
   .logomobile { display: none !important; }
+  .mobile-logo-champion { display: none !important; }
 }
 </style>
 </body>
