@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +12,11 @@
   <style>
     :root {
       --plyr-color-main: #ffc801 !important;
+    }
+    /* Mobile header hidden by default */
+    .mobile-header { display: none; }
+    @media (max-width: 900px) {
+      .main-header, .mobile-header { display: none !important; }
     }
   </style>
 </head>
@@ -30,20 +34,9 @@
   </div>
 
   <div class="glass-container">
-    <header>
-      <div class="logo" style="margin-left: 2rem;">DnC Studio</div>
-      <br></br>
-
-      <nav>
-        <a href="#packages">Pachete</a>
-        <a href="#oferim">Ce oferim?</a>
-        <a href="#contact" class="contact-nav-btn"><button>Contact</button></a>
-      </nav>
-      <div class="auth-buttons" style="align-self: flex-end; display:none;">
-        <!-- Old contact button hidden, now in nav -->
-      </div>
-    </header>
-
+    <div style="width:100%;text-align:center;margin-top:1.2rem;margin-bottom:1.2rem;">
+      <span style="font-family:'Champion','Cinzel',serif;font-size:2.2rem;color:#fff;font-weight:bold;letter-spacing:0.04em;">DnC Studio</span>
+    </div>
     <section class="hero">
       <div style="display: flex; align-items: flex-start; gap: 4.5rem; flex-wrap: wrap;">
         <div style="flex: 1 1 350px; min-width: 250px;">
@@ -72,7 +65,7 @@
       </div>
       <div class="package">
         <h2>Premium</h2>
-        <div class="info">Tot ce e în Standard, plus scripturi făcute de noi, subtitrări și un video cadou</div>
+        <div class="info">Tot ce e în Standard, plus scripturi făcute de noi, subtitrări</div>
         <p class="price">449€</p>
         <ul>
           <li>Toate serviciile din Pachetul Standard, plus:</li>
@@ -109,8 +102,8 @@
       <h2 style="color:#fff; text-align:center; font-size:2.1rem; margin-bottom:1.2rem; font-family:Impact, Charcoal, 'Arial Black', 'Space Grotesk', 'Anton', sans-serif; font-weight:normal;">Ce oferim?</h2>
       <div style="display: flex; flex-wrap: wrap; gap: 2.5rem; justify-content: center; align-items: flex-start;">
         <div style="flex:1 1 260px; min-width:260px; max-width:450px; padding:2rem; color:#fff;">
-          <h1>Filmare profesională</h1>
-          <p class="p1mic">Folosim echipamente de ultimă generație pentru o imagine clară și cinematică. Fie că vrei un video dinamic sau o poveste emoționantă, te punem în lumină și te ajutăm să ieși în evidență într-o piață aglomerată</p>
+          <h1>10 Reels. Start în social media</h1>
+          <p class="p1mic">Filmăm, edităm și livrăm conținut gata de postat, gândit să atragă atenția și să-ți crească vizibilitatea online. Ne ocupăm de tot: imagine, sunet, montaj și dinamica perfectă pentru platformele sociale.</p>
 
         </div>
                 <div style="flex: 0 0 440px; min-width: 280px; display: flex; justify-content: center; align-items: flex-start; margin-top: 0.5rem;">
@@ -141,7 +134,7 @@
       </div>
     </section>
     <section id="tiktok-grid-section" style="margin: 3rem 0 2rem 0;">
-      <h2 style="color:#fff; text-align:center; font-size:2.1rem; margin-bottom:1.2rem; font-family:Impact, Charcoal, 'Arial Black', 'Space Grotesk', 'Anton', sans-serif; font-weight:normal;">Clipuri TikTok recente</h2>
+      <h2 style="color:#fff; text-align:center; font-size:2.1rem; margin-bottom:1.2rem; font-family:Impact, Charcoal, 'Arial Black', 'Space Grotesk', 'Anton', sans-serif; font-weight:normal;">Clipuri TikTok create de noi</h2>
       <div class="tiktok-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 1400px; margin: 0 auto;">
         <video class="plyr" controls style="background:#222; border-radius:18px; width:100%; height:420px; min-height:340px; object-fit:cover;">
           <source src="video1.mp4" type="video/mp4">
@@ -171,17 +164,29 @@
     </section>
     <section class="contact-form" id="contact">
       <h2 style="color:#ffffff; margin-bottom:1rem;">Hai să-ți facem brandul cunoscut!</h2>
-      <form action="https://formspree.io/f/mwpojnrv" method="POST">
+      <form action="https://formspree.io/f/mwpojnrv" method="POST" onsubmit="return document.getElementById('gdpr-consent').checked;">
         <input type="text" name="name" placeholder="Numele tău" required>
         <input type="email" name="email" placeholder="Email" required>
         <input type="tel" name="phone" placeholder="Număr telefon" pattern="[0-9+\-() ]{7,}" required>
         <textarea name="message" rows="5" placeholder="Ce idee vrei să transformăm în video?" required></textarea>
+        <div class="gdpr-consent-container">
+          <input type="checkbox" id="gdpr-consent" name="gdpr-consent" required style="margin-right: 0.5rem;">
+          <label for="gdpr-consent" style="color:#fff; font-size:1rem; cursor:pointer;">Sunt de acord ca datele mele personale să fie folosite pentru a fi contactat de DNC Studio.</label>
+        </div>
         <button type="submit">Trimite</button>
       </form>
     </section>
 
     <div class="footer">
-      &copy; 2025 DNC Studio Production. All rights reserved.
+      <div class="footer-logo">DnC Studio</div>
+      <nav class="footer-nav">
+        <a href="#about">Despre noi</a>
+        <a href="#services">Servicii</a>
+        <a href="#tiktok-grid-section">Portofoliu</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="footer-copy">&copy; 2025 DNC Studio Production. All rights reserved.</div>
     </div>
   </div>
 
@@ -256,6 +261,54 @@
       // Initial call to set positions
       animateBalls();
     });
+
+    // Functie JS pentru a adauga un glass-container in jurul header-ului, max 70% latime
+function wrapHeaderWithGlass() {
+  var header = document.querySelector('.main-header');
+  var mobileHeader = document.querySelector('.mobile-header');
+  // Pentru desktop
+  if (header && !header.parentElement.classList.contains('header-glass-wrap')) {
+    var glass = document.createElement('div');
+    glass.className = 'header-glass-wrap';
+    header.parentNode.insertBefore(glass, header);
+    glass.appendChild(header);
+  }
+  // Pentru mobil
+  if (mobileHeader && !mobileHeader.parentElement.classList.contains('header-glass-wrap')) {
+    var glassMobile = document.createElement('div');
+    glassMobile.className = 'header-glass-wrap';
+    // Stiluri specifice mobile
+    glassMobile.style.width = '99vw';
+    glassMobile.style.maxWidth = '99vw';
+    glassMobile.style.margin = '0.5rem auto';
+    glassMobile.style.borderRadius = '0 0 18px 18px';
+    glassMobile.style.background = 'rgba(255,255,255,0.08)';
+    glassMobile.style.backdropFilter = 'blur(12px)';
+    glassMobile.style.webkitBackdropFilter = 'blur(12px)';
+    glassMobile.style.boxShadow = '0 4px 30px rgba(0,0,0,0.1)';
+    glassMobile.style.border = '1px solid rgba(255,255,255,0.1)';
+    glassMobile.style.position = 'relative';
+    glassMobile.style.zIndex = '10';
+    mobileHeader.parentNode.insertBefore(glassMobile, mobileHeader);
+    glassMobile.appendChild(mobileHeader);
+  }
+}
+window.addEventListener('DOMContentLoaded', wrapHeaderWithGlass);
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Mobile menu toggle
+  const menuBtn = document.querySelector('.mobile-menu-btn');
+  const mobileNav = document.querySelector('.mobile-nav');
+  if(menuBtn && mobileNav) {
+    menuBtn.addEventListener('click', function() {
+      mobileNav.classList.toggle('open');
+    });
+    // Optional: close menu on link click
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileNav.classList.remove('open'));
+    });
+  }
+});
   </script>
 </body>
 </html>
