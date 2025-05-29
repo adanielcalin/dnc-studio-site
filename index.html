@@ -17,69 +17,6 @@
     .mobile-header { display: none; }
     @media (max-width: 900px) {
       .main-header, .mobile-header { display: none !important; }
-      .hero h1 {
-        font-family: Impact, Charcoal, 'Arial Black', 'Space Grotesk', 'Anton', sans-serif !important;
-        font-weight: normal !important;
-        letter-spacing: 0.01em !important;
-        color: #fff !important;
-        line-height: 1.15 !important;
-        font-size: 1.1rem !important;
-      }
-      .hero h1 span {
-        font-size: 2.2rem !important;
-        color: #FFD700 !important;
-        font-family: inherit !important;
-        font-weight: bold !important;
-      }
-      /* Progressive font size for each word */
-      .hero h1 .word1 { font-size: 1.1rem !important; }
-      .hero h1 .word2 { font-size: 1.25rem !important; }
-      .hero h1 .word3 { font-size: 1.4rem !important; }
-      .hero h1 .word4 { font-size: 1.6rem !important; }
-      .hero h1 .word5 { font-size: 1.8rem !important; }
-      .hero h1 .word6 { font-size: 2rem !important; }
-      .hero h1 .word7 { font-size: 2.2rem !important; }
-    }
-    @media (max-width: 900px) {
-      .hero-headline-mobile {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.18em;
-        line-height: 1.13;
-        font-family: Impact, Charcoal, 'Arial Black', 'Space Grotesk', 'Anton', sans-serif;
-        font-weight: normal;
-        color: #fff;
-        margin-bottom: 0.7rem;
-        font-size: 1.1rem;
-        letter-spacing: 0.01em;
-      }
-      .hero-headline-mobile .word1 { font-size: 1.1rem; }
-      .hero-headline-mobile .word2 { font-size: 1.2rem; }
-      .hero-headline-mobile .word3 { font-size: 1.35rem; }
-      .hero-headline-mobile .word4 { font-size: 1.5rem; }
-      .hero-headline-mobile .word5 { font-size: 1.7rem; }
-      .hero-headline-mobile .word6 { font-size: 1.9rem; }
-      .hero-headline-mobile .word7 { font-size: 2.1rem; }
-      .hero-headline-mobile .word8 { font-size: 2.3rem; }
-      .hero-headline-mobile .word9 { font-size: 2.7rem; color: #FFD700; font-weight: bold; }
-    }
-    @media (min-width: 901px) {
-      .hero-headline-mobile {
-        font-size: 2.6rem;
-        line-height: 1.13;
-        font-family: Impact, Charcoal, 'Arial Black', 'Space Grotesk', 'Anton', sans-serif;
-        color: #fff;
-        font-weight: normal;
-        letter-spacing: 0.01em;
-        margin-bottom: 0.7rem;
-        display: block;
-      }
-      .hero-headline-mobile span {
-        font-size: inherit !important;
-        color: inherit !important;
-        font-weight: inherit !important;
-      }
-      .hero-headline-mobile .word9 { color: #FFD700; font-size: 3.2rem !important; font-weight: bold; }
     }
   </style>
 </head>
@@ -114,16 +51,12 @@
     <section class="hero">
       <div style="display: flex; align-items: flex-start; gap: 4.5rem; flex-wrap: wrap;">
         <div style="flex: 1 1 350px; min-width: 250px;">
-          <h1 class="hero-headline-mobile">
-            <span class="word1">Echipă</span> 
-            <span class="word2">de</span> 
-            <span class="word3">producție</span> 
-            <span class="word4">video</span> 
-            <span class="word5">care</span> 
-            <span class="word6">te</span> 
-            <span class="word7">scoate</span> 
-            <span class="word8">din</span> 
-            <span class="word9">UMBRA!</span>
+          <h1 class="logomobile">DnC Studio</h1>
+          <h1 class="desktop-headline" style="display:block;">
+            Echipă de producție video care te scoate din <span style="color:#FFD700;font-size:3.2rem;">UMBRA!</span>
+          </h1>
+          <h1 class="mobile-headline" style="display:none;font-size:2.7rem;text-align:center;width:100%;">
+            Echipă de producție video care te scoate din <span style="color:#FFD700;">UMBRA!</span>
           </h1>
           <p class="p1mic">Te scoatem din mulțime și te facem vizibil printre sutele de mii de branduri, cu video-uri care nu doar captează atenția, ci și generează vânzări reale. Prin conținut autentic și strategie clară, transformăm povestea ta în cea mai puternică armă de marketing, astfel încât să fii ales și apreciat de clienții potriviți.</p>
         </div>
@@ -394,5 +327,31 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
   </script>
+  <style>
+@media (max-width: 900px) {
+  .desktop-headline { display: none !important; }
+  .mobile-headline { display: block !important; font-size: 2.1rem; font-family: Impact, Charcoal, 'Arial Black', 'Space Grotesk', 'Anton', sans-serif; font-weight: bold; color: #fff; line-height: 1.13; text-align: center; width: 100%; }
+  .logomobile {
+    display: block !important;
+    font-family: 'Champion', 'Cinzel', serif !important;
+    font-size: 3.2rem;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+    text-align: center;
+    margin-bottom: 0.7rem;
+    margin-top: 0.7rem;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+  }
+}
+@media (min-width: 901px) {
+  .desktop-headline { display: block !important; }
+  .mobile-headline { display: none !important; }
+  .logomobile { display: none !important; }
+}
+</style>
 </body>
 </html>
