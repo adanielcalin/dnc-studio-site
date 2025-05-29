@@ -549,3 +549,74 @@ body {
     opacity: 0 !important;
   }
 }
+
+/* Din index.html - CSS mutat aici */
+:root {
+  --plyr-color-main: #ffc801 !important;
+}
+.mobile-header { display: none; }
+@media (max-width: 900px) {
+  .main-header, .mobile-header { display: none !important; }
+}
+@media (max-width: 900px) {
+  .desktop-headline { display: none !important; }
+  .mobile-headline { display: block !important; font-size: 2.1rem; font-family: Impact, Charcoal, 'Arial Black', 'Space Grotesk', 'Anton', sans-serif; font-weight: bold; color: #fff; line-height: 1.13; text-align: center; width: 100%; }
+  .mobile-top-h1 {
+    display: block;
+    font-family: 'Champion', 'Cinzel', serif !important;
+    font-size: 2.3rem;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+    text-align: center;
+    margin: 1.3rem 0 1.1rem 0;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+    z-index: 101;
+    background: none;
+  }
+  .hero img {
+    max-width: 340px !important;
+    width: 98vw !important;
+    margin-left: 0 !important;
+    margin-top: 0.2rem !important;
+    display: block;
+  }
+  .hero > div > div:last-child {
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+  }
+  .tiktok-grid { display: none !important; }
+}
+@media (min-width: 901px) {
+  .mobile-top-h1 { display: none !important; }
+}
+@media (max-width: 900px) {
+  .mobile-video-grid {
+    display: flex !important;
+    flex-direction: column;
+    gap: 0.7rem;
+    width: 90vw;
+    max-width: 90vw;
+    margin: 0 auto 0.8rem auto;
+    padding: 0;
+    align-items: center;
+  }
+  .mobile-video-grid video {
+    width: 48vw;
+    max-width: 270px;
+    height: 86vw;
+    max-height: 480px;
+    aspect-ratio: 9/16;
+    background: #222;
+    border-radius: 10px;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+  }
+}
+@media (min-width: 901px) {
+  .mobile-video-grid { display: none !important; }
+}
